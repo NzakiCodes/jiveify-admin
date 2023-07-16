@@ -95,3 +95,47 @@ export interface Metrics {
   malePercentage:   string;
   femalePercentage: string;
 }
+
+export interface PodcasterReturn {
+  items:      Item[];
+  page:       number;
+  limit:      number;
+  offset:     number;
+  totalItems: number;
+}
+
+export interface Item {
+  id:           string;
+  fullname:     string;
+  user_id:      string;
+  status:       string;
+  title:        string;
+  description:  string;
+  totalPodcast: string;
+  subscription: Subscription;
+}
+export interface Podcaster {
+  id:           string;
+  fullname:     string;
+  user_id:      string;
+  status:       string;
+  title:        string;
+  description:  string;
+  totalPodcast: string;
+  subscription: string
+}
+
+export interface Subscription {
+  subscription_plan: string;
+  plan_amount:       string;
+  expired:           boolean;
+  subscriptionDate:  ExpiryDateClass;
+  lastRenewedDate:   ExpiryDateClass;
+  expiryDate:        ExpiryDateClass;
+}
+
+export interface ExpiryDateClass {
+  nano:      number;
+  timestamp: string;
+  date:      string;
+}

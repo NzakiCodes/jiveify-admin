@@ -66,9 +66,7 @@ const sidebarlinks: {
 
 export function Sidebar({ className }: SidebarProps) {
   const { setTheme } = useTheme();
-  const [active, setActive] = useState<string>(
-    window && window.location.pathname
-  );
+  const [active, setActive] = useState<string>(sidebarlinks[0]);
   useEffect(() => {
     if (window && window.location.pathname) {
       setActive(window.location.pathname);

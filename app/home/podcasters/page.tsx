@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Topbar from "@/components/topbar";
 import { axiosAuth } from "@/config/axios";
 import { useQuery } from "@tanstack/react-query";
-import { Podcast, Podcaster, PodcasterReturn } from "@/types";
+import { Podcaster, PodcasterReturn } from "@/types";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 

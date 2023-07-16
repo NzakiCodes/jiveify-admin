@@ -5,8 +5,6 @@ import { Podcast } from "@/types";
 import { Skeleton } from "./ui/skeleton";
 import truncateString from "@/utils/truncateString";
 import { baseURL } from "@/config/constants";
-import Link from "next/link";
-import { useEffect } from "react";
 
 interface PodcastCardProps extends React.HTMLAttributes<HTMLDivElement> {
   podcast: Podcast;

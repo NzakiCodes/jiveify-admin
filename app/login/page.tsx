@@ -14,15 +14,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { GoogleLogoIcon, YellowStar } from "@/components/atoms/Icons";
-import Image from "next/image";
-import Logo from "@/components/atoms/logo";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuthStore } from "@/store";
 import { CheckCircle, LoaderIcon, XCircleIcon } from "lucide-react";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { baseURL } from "@/config/constants";
+import { basePath, baseURL } from "@/config/constants";
 import { useMutation } from "@tanstack/react-query";
 
 const formSchema = z.object({
@@ -58,7 +55,7 @@ export default function Register() {
         className: "bg-green-100 text-green-600",
       });
       setToken(data.data.token);
-      router.push("/home");
+      router.push(basePath);
     }
   };
 
@@ -85,33 +82,6 @@ export default function Register() {
 
   return (
     <main className="flex min-h-screen ">
-      {/* <div className="hidden md:block md:w-1/2 lg:w-7/12 h-full min-h-screen relative login-bg">
-        <div className="max-w-[672px] px-4 mx-auto my-20 flex flex-col gap-y-7">
-          <Logo />
-          <h1 className="text-3xl lg:text-5xl lg:leading-snug text-white font-semibold font-heading">
-            Unleash your podcasting potential
-          </h1>
-          <p className="text-base lg:text-xl lg:leading-8 text-white text-opacity-75">
-            Login to Jiveify and unlock your podcasting potential. Connect with
-            fellow podcasters, access your episodes, and start sharing your
-            voice with the world.
-          </p>
-          <div className="flex gap-x-4 w-[75%] lg:w-[50%]">
-            <div className="w-1/2 relative h-10">
-              <Image src={"/images/avatar_group.png"} fill alt="Avatar Group" />
-            </div>
-            <div className="w-1/2 font-medium text-base text-white items-center">
-              <div className="flex space-x-1">
-                {[1, 2, 3, 4, 5].map((_, idx) => (
-                  <YellowStar key={idx} />
-                ))}
-                <span> 5.0</span>
-              </div>
-              <p>from 200+ reviews</p>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="w-full  flex items-center justify-center flex-col px-6 md:px-4">
         <div className="max-w-[400px]  mx-auto w-full">
           <div className="flex flex-col gap-y-1 my-8 text-center">

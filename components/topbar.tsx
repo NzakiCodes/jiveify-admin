@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -30,7 +30,9 @@ function Topbar({
       >
         <MobileSidebar />
         {!!title && (
-          <span className="w-[80%] font-bold text-lg lg:text-3xl font-heading text-purple-700 lg:font-extrabold">{title}</span>
+          <span className="w-[80%] font-bold text-lg lg:text-3xl font-heading text-purple-700 lg:font-extrabold">
+            {title}
+          </span>
         )}
       </div>
       {hasSearchBox && (
@@ -40,7 +42,10 @@ function Topbar({
           } lg:w-6/12 xl:w-9/12"`}
         >
           <Label className="flex items-center w-full relative">
-            <Input placeholder="Search" className="py-6 px-5 w-full rounded-full" />
+            <Input
+              placeholder="Search"
+              className="py-6 px-5 w-full rounded-full"
+            />
             <div className="right-2 bg-primary-foreground p-2 rounded-full absolute z-20">
               <SearchIcon size={18} strokeWidth={1} />
             </div>
@@ -49,19 +54,18 @@ function Topbar({
       )}
 
       <div className="w-[25%] lg:w-4/12 xl:w-3/12  flex gap-x-2 items-center justify-between">
-        <Button
+        {/* <Button
           variant={"secondary"}
           size={"icon"}
           onClick={() => setNotification(!notification)}
         >
           {notification ? <BellDotIcon /> : <BellIcon />}
-        </Button>
-        <div className="flex items-center gap-x-2">
+        </Button> */}
+        <div className="flex items-center gap-x-2 self-end place-self-end">
           {user !== null ? (
             <span className="font-heading hidden lg:inline">
-              Hello!{" "}
               <span title={user.fullname}>
-                {truncateString(user.fullname, 10)}{" "}
+                {truncateString(user.fullname, 15)}
               </span>
             </span>
           ) : (

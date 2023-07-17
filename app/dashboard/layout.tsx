@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useAppStore, useAuthStore } from "@/store";
 import { Sidebar } from "@/components/sidebar";
 import { axiosAuth } from "@/config/axios";
@@ -10,7 +10,6 @@ const fetchUser = async () => {
   return axiosAuth.get("/profile");
 };
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
   const setUser = useAuthStore((s) => s.setUser);
   const user = useAuthStore((s) => s.user);
   const isLoggedIn = useAuthStore((s) => s.isLoggedIn);
@@ -18,8 +17,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const userQuery = useQuery(["fetch-user-data"], fetchUser);
   useEffect(() => {
     if (!isLoggedIn) {
-      router.replace("/login");
+      redirect('/login')
     }
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 

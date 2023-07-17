@@ -1,2 +1,2 @@
 export const baseURL = "https://test-jivefy.ygrehu.easypanel.host"
-export const basePath = "/home"
+export const basePath = "/dashboard"

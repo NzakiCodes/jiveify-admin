@@ -19,7 +19,7 @@ import Image from "next/image";
 import Logo from "@/components/atoms/logo";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { baseURL } from "@/config/constants";
+import { basePath, baseURL } from "@/config/constants";
 import { CheckCircle, LoaderIcon, XCircleIcon } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
@@ -67,7 +67,7 @@ export default function Register() {
         className: "bg-green-100 text-green-600",
       });
       setToken(data.data.token);
-      router.push("/home");
+      router.push(basePath);
     }
   };
 

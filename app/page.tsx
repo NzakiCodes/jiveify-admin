@@ -15,7 +15,7 @@ export default function Home() {
     } else {
       redirect(basePath);
     }
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <main className="flex min-h-screen flex-col justify-between py-20 px-24">

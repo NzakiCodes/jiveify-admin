@@ -26,7 +26,7 @@ function Page() {
           </div>
           <div className="space-x-2">
             <Button variant={"outline"} size={"lg"}>Cancel</Button>
-            <Button variant={"ghost"} size={"lg"} className="bg-purple-600 hover:bg-purple-600">Save</Button>
+            <Button variant={"ghost"} size={"lg"} className="bg-purple-600 hover:bg-purple-500">Save</Button>
           </div>
         </div>
       </div>

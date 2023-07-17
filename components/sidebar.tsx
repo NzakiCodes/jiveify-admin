@@ -108,7 +108,7 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
         </div>
 
-        <div className="lg:px-6 flex w-full justify-end">
+        <div className="lg:px-6 flex w-full justify-end pb-16 ">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">

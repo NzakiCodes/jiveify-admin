@@ -98,7 +98,7 @@ function Page() {
             </div>
           </div>
           <div className="flex justify-between">
-            <div className="lg:w-2/3 my-10 border rounded-xl">
+            <div className="w-full lg:w-2/3 my-10 border rounded-xl">
               <div className="p-4">
                 <span className="font-heading font-bold text-xl">
                   Personal Information

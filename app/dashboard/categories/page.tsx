@@ -91,7 +91,10 @@ function Page() {
           </div>
           <div className="py-4">
             <Table className="px-4">
-              <TableCaption>A list of all Categories.</TableCaption>
+              {!podcastCategoriesQuery.isLoading &&
+                podcastCategoriesQuery.data && (
+                  <TableCaption>A list of all Categories.</TableCaption>
+                )}
               <TableHeader className="bg-primary-foreground px-10">
                 <TableRow>
                   <TableHead>Name</TableHead>
@@ -103,23 +106,10 @@ function Page() {
               </TableHeader>
               {podcastCategoriesQuery.isLoading && (
                 <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">
-                      <Skeleton className="w-full h-6" />
-                    </TableCell>
-                    <TableCell>
-                      <Skeleton className="w-full h-6" />
-                    </TableCell>
-                    <TableCell>
-                      <Skeleton className="w-full h-6" />
-                    </TableCell>
-                    <TableCell>
-                      <Skeleton className="w-full h-6" />
-                    </TableCell>
-                    <TableCell>
-                      <Skeleton className="w-full h-6" />
-                    </TableCell>
-                  </TableRow>
+                  <TableSkeleton />
+                  <TableSkeleton />
+                  <TableSkeleton />
+                  <TableSkeleton />
                 </TableBody>
               )}
               {!podcastCategoriesQuery.isLoading &&
@@ -149,7 +139,11 @@ function Page() {
                   }
                 )
               ) : (
-                <div></div>
+                <TableRow>
+                  <TableCell colSpan={5} className="h-20 text-center">
+                    No results.
+                  </TableCell>
+                </TableRow>
               )}
             </Table>
           </div>
@@ -158,5 +152,25 @@ function Page() {
     </Fragment>
   );
 }
+
+const TableSkeleton = () => (
+  <TableRow>
+    <TableCell className="font-medium">
+      <Skeleton className="w-full h-6" />
+    </TableCell>
+    <TableCell>
+      <Skeleton className="w-full h-6" />
+    </TableCell>
+    <TableCell>
+      <Skeleton className="w-full h-6" />
+    </TableCell>
+    <TableCell>
+      <Skeleton className="w-full h-6" />
+    </TableCell>
+    <TableCell>
+      <Skeleton className="w-full h-6" />
+    </TableCell>
+  </TableRow>
+);
 
 export default Page;

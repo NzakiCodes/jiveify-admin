@@ -9,6 +9,8 @@ import { columns } from "./columns";
 import { AxiosResponse } from "axios";
 import { toast } from "@/components/ui/use-toast";
 import { CheckCircle } from "lucide-react";
+import { ToastAction } from "@/components/ui/toast";
+import { Button } from "@/components/ui/button";
 
 const fetchPodcasters = (data: any): Promise<PodcasterReturn> =>
   axiosAuth.post("/admin/podcasters", data).then((response) => response.data);
@@ -57,7 +59,20 @@ export default function Page() {
   });
 
   const deletePodcaster = (podcasterId: string) => {
-    deletePodcaterMutation.mutate(podcasterId);
+    toast({
+      title: "Delete Podcaster",
+      description: "Do you really want to Delete Podcaster?'",
+      action: (
+        <ToastAction
+          onClick={() => deletePodcaterMutation.mutate(podcasterId)}
+          altText="Delete"
+        >
+          Delete
+        </ToastAction>
+      ),
+      variant:"destructive",
+      duration:5000
+    });
   };
 
   const data: Podcaster[] = podcastersQuery.data

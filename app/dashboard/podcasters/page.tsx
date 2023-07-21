@@ -15,9 +15,9 @@ import { Button } from "@/components/ui/button";
 const fetchPodcasters = (data: any): Promise<PodcasterReturn> =>
   axiosAuth.post("/admin/podcasters", data).then((response) => response.data);
 
-const deletePodcater = (podcaterId: string) => {
-  console.log(podcaterId);
-  return axiosAuth.delete(`/admin/podcaster/delete/${podcaterId}`);
+const deletePodcater = (podcasterId: string) => {
+  console.log(podcasterId);
+  return axiosAuth.delete(`/admin/podcaster/delete/${podcasterId}`);
 };
 
 const InitialData: Podcaster[] = [

@@ -108,8 +108,6 @@ export function Sidebar({ className }: SidebarProps) {
                   </SidebarLink>
                 );
               })}
-
-              <CreateCatogory />
             </div>
           </div>
         </div>

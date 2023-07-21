@@ -35,7 +35,7 @@ const formSchema = z.object({
   name: z
     .string()
     .min(3, { message: "Name is too short" })
-    .max(20, { message: "Name should not be more than 20 characters." }).trim(),
+    .max(30, { message: "Name should not be more than 30 characters." }).trim(),
   description: z
     .string()
     .min(5, { message: "description must be atleats 5 characters." })
@@ -63,6 +63,8 @@ export function CreateCatogory() {
       ),
       className: "bg-green-100 text-green-600",
     });
+    setOpen(false)
+    form.reset()
   };
 
   const onError = (error: AxiosError<any, any>) => {
@@ -91,7 +93,7 @@ export function CreateCatogory() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" className="w-full justify-start">
+        <Button  className="w-full justify-start">
           <ListPlusIcon className="mr-2" />
           Create Categories
         </Button>

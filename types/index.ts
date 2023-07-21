@@ -77,10 +77,11 @@ export interface FileSize {
   size_in_bytes: number;
 }
 
-export interface Podcastcategory {
+export interface PodcastCategory {
   id:          string;
   name:        string;
   slug:        string;
+  status:      string;
   description: string;
   created_at:  Date;
   updated_at:  Date;

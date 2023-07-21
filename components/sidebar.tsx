@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import Logo from "./atoms/logo";
 import {
   FileAudioIcon,
+  FilesIcon,
   HomeIcon,
   LucideIcon,
   MoonIcon,
@@ -61,6 +62,11 @@ const sidebarlinks: {
     href: "/published-podcasts",
     icon: FileAudioIcon,
     text: "Published Podcasts",
+  },
+  {
+    href: "/categories",
+    icon: FilesIcon,
+    text: "Categories ",
   },
 ];
 

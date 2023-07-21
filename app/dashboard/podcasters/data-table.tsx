@@ -28,12 +28,14 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   isLoading?: boolean;
+  onDelete: (podcastId: string) => void;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   isLoading,
+  onDelete,
 }: DataTableProps<TData, TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [rowSelection, setRowSelection] = useState({});
@@ -55,7 +57,7 @@ export function DataTable<TData, TValue>({
   return (
     <div className="rounded-md border  py-4">
       <div className="px-4 py-2">
-        <h1 className="text-3xl font-heading font-bold">User List</h1>
+        <h1 className="text-3xl font-heading font-bold">Podcasters List</h1>
         <p className="text-sm text-gray-500 dark:text-gray-300">
           Podcasters List showing Plans and their podcasts counts.{" "}
         </p>
@@ -121,10 +123,10 @@ export function DataTable<TData, TValue>({
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                      {flexRender(cell.column.columnDef.cell, {
+                        ...cell.getContext(),
+                        onDelete,
+                      })}
                     </TableCell>
                   ))}
                 </TableRow>

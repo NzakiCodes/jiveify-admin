@@ -16,8 +16,9 @@ import Link from "next/link";
 import { User } from "@/types";
 import { Skeleton } from "./ui/skeleton";
 import { useAuthStore } from "@/store";
+import { baseURL } from "@/config/constants";
 
-export function ProfileDropdownMenu({ user }: { user: User | null }) {
+export function ProfileDropdownMenu({ user }: { user: Partial<User> | null }) {
   const logout = useAuthStore((s) => s.logout);
   return (
     <DropdownMenu>
@@ -30,11 +31,11 @@ export function ProfileDropdownMenu({ user }: { user: User | null }) {
         >
           <Avatar>
             <AvatarImage
-              src="https://github.com/NzakiCodess.png"
-              alt="@NzakiCodess"
+              src={user?.avatar !== null ? `${baseURL}/${user?.avatar}` : ""}
+              alt={user?.fullname}
             />
             {user !== null ? (
-              <AvatarFallback>{getNameInitials(user?.fullname)}</AvatarFallback>
+              <AvatarFallback>{getNameInitials(user?.fullname?user?.fullname:"")}</AvatarFallback>
             ) : (
               <Skeleton className="h-12 w-12 rounded-full" />
             )}
@@ -42,7 +43,6 @@ export function ProfileDropdownMenu({ user }: { user: User | null }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-       
         <DropdownMenuGroup>
           <Link href={"/profile"}>
             <DropdownMenuItem className="cursor-pointer">
@@ -50,7 +50,7 @@ export function ProfileDropdownMenu({ user }: { user: User | null }) {
               <span>Profile</span>
             </DropdownMenuItem>
           </Link>
-          
+
           <DropdownMenuItem>
             <Settings className="mr-2 h-4 w-4" />
             <span>Settings</span>

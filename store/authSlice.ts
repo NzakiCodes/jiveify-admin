@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import { AuthenticateUser } from "@/types";
+import { AuthenticateUser, User } from "@/types";
 /**
  * Sets authenticate user
  * @param set
@@ -21,6 +21,13 @@ const authenticateUser: StateCreator<AuthenticateUser> = (set, get) => ({
     set(() => ({
       token: token,
       isLoggedIn: true,
+    }));
+  },
+  updateAvatar(avatar) {
+    const user = get().user;
+    const updated_user: Partial<User> = { ...user, avatar: avatar };
+    set(() => ({
+      user: updated_user,
     }));
   },
   logout() {

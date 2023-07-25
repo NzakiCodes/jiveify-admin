@@ -13,17 +13,19 @@ export interface User {
   isAdmin: boolean;
   isMember: boolean;
   active: boolean;
+  avatar: string|null
 }
 
 type Token = string;
 
 export interface AuthenticateUser {
   isLoggedIn: boolean;
-  user: User | null;
+  user: Partial<User> | null;
   token: Token | null;
   setUser: (user: User) => void;
   setToken: (token: Token) => void;
   logout: () => void;
+  updateAvatar:(avatar:string)=>void
 }
 
 export interface Theme {

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/utils/theme-provider";
 
-const dm_sans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
+const dm_sans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"], fallback:["san-serif"] });
 
 export default function RootLayout({
   children,

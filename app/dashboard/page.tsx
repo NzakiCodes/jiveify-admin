@@ -16,6 +16,7 @@ import PodcastCard from "@/components/podcast-card";
 import { Metrics, Podcast } from "@/types";
 import { HeadphonesIcon, Users2Icon } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import Chart from "./chart";
 
 const fetchMetrics = (): Promise<Metrics> =>
   axiosAuth.get("/admin/metrics").then((response) => response.data);
@@ -33,7 +34,7 @@ export default function Page() {
           <div className=" px-4 py-6 lg:px-8 my-4">
             <span className="py-1">Active users right now</span>
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-y-3 my-2 py-2">
-              <div className="lg:col-span-1 ">
+              <div className="lg:col-span-2 ">
                 <Card className=" py-4 border-none">
                   <CardContent className="py-3">
                     <div className="text-5xl font-bold">
@@ -50,12 +51,29 @@ export default function Page() {
                       {metricsQuery.data?.podcasters}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                    Graph showing Active Users per day
+                      Graph showing Active Users per day
                     </p>
                   </CardContent>
                 </Card>
               </div>
-              <div className="lg:col-span-4"></div>
+              <div className="lg:col-span-3">
+                <Chart
+                  data={[
+                    {
+                      name: "Male",
+                      total: metricsQuery.data?.male
+                        ? metricsQuery.data?.male
+                        : 0,
+                    },
+                    {
+                      name: "Female",
+                      total: metricsQuery.data?.male
+                        ? metricsQuery.data?.female
+                        : 0,
+                    },
+                  ]}
+                />
+              </div>
             </div>
           </div>
 

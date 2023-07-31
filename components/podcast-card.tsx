@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -35,7 +36,7 @@ function PodcastCard({
   return (
     <div  className={cn("space-y-3", className)} {...props}>
       <div className="overflow-hidden rounded-md">
-        <Image
+        <img
           src={podcast.image}
           // src={album.cover}
           alt={podcast.title}
@@ -45,7 +46,7 @@ function PodcastCard({
             "h-auto w-auto object-cover transition-all hover:scale-105",
             aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
           )}
-          quality={100}
+          // quality={100}
         />
       </div>
       <div className="space-y-1 text-sm">

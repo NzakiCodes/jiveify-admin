@@ -50,7 +50,7 @@ const formSchema = z.object({
     .string()
     .min(3, { message: "country must be atleats 3 characters." })
     .max(70, { message: "country should not exceed 70 characters." }),
-  zip_code: z.number().min(5).max(6),
+  zip_code: z.string().min(5).max(6),
 });
 
 function Page() {

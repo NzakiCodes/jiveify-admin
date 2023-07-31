@@ -6,7 +6,7 @@ export interface User {
   address?: string;
   city?: string;
   country?: string;
-  zip_code?: number;
+  zip_code?: string;
   status: string;
   fullname: string;
   verified: boolean;

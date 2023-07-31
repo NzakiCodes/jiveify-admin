@@ -21,7 +21,7 @@ function PodcastCard({
   className,
   ...props
 }: PodcastCardProps) {
-  console.log(`${baseURL}/${podcast.audio.file_path}`);
+/*   console.log(`${baseURL}/${podcast.audio.file_path}`);
   const audio = new Audio();
   audio.src = `${baseURL}/${podcast.audio.file_path}`;
 
@@ -30,13 +30,13 @@ function PodcastCard({
       audio.play();
     }
     audio.pause()
-  };
+  }; */
 
   return (
-    <div onClick={playAudio} className={cn("space-y-3", className)} {...props}>
+    <div  className={cn("space-y-3", className)} {...props}>
       <div className="overflow-hidden rounded-md">
         <Image
-          src={`${baseURL}/${podcast.image.file_path}`}
+          src={podcast.image}
           // src={album.cover}
           alt={podcast.title}
           width={width}

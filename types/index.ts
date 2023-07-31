@@ -43,7 +43,7 @@ export interface Podcast {
   user_id:     string;
   title:       string;
   description: string;
-  image:       Audio;
+  image:       string;
   audio:       Audio;
   category:    null;
   location:    string;

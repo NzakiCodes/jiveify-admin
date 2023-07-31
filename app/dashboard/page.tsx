@@ -28,7 +28,7 @@ export default function Page() {
 
   return (
     <Fragment>
-      <Topbar title="Dashboard" />
+      <Topbar title="Dashboard" hasSearchBox={false} />
       <div className="my-7 py-8">
         <div className="border border-gray-800 rounded-lg mx-4 py-6 lg:mx-8 my-4">
           <div className=" px-4 py-6 lg:px-8 my-4">

@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import { AuthenticateUser, User } from "@/types";
+import { AuthenticateUser, AdminUser } from "@/types";
 /**
  * Sets authenticate user
  * @param set
@@ -25,7 +25,7 @@ const authenticateUser: StateCreator<AuthenticateUser> = (set, get) => ({
   },
   updateAvatar(avatar) {
     const user = get().user;
-    const updated_user: Partial<User> = { ...user, avatar: avatar };
+    const updated_user: Partial<AdminUser> = { ...user, avatar: avatar };
     set(() => ({
       user: updated_user,
     }));

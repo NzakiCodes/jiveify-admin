@@ -1,16 +1,16 @@
 "use client";
 
-import { Podcaster } from "@/types";
+import { Podcaster, User } from "@/types";
 import { CellContext, ColumnDef } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 interface CType extends CellContext<Podcaster, unknown> {
-  onDelete: (podcastId: string) => void;
+  onDelete: (userId: string) => void;
 }
 
-export const columns: ColumnDef<Podcaster>[] = [
+export const columns: ColumnDef<User>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -31,30 +31,30 @@ export const columns: ColumnDef<Podcaster>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "fullname",
+    accessorKey: "first_name",
     header: "Name",
   },
+  // {
+  //   accessorKey: "last_name",
+  //   header: "Last Name",
+  // },
   {
-    accessorKey: "status",
+    accessorKey: "email",
+    header: "Email",
+  },
+  {
+    accessorKey: "username",
     header: "Status",
-  },
-  {
-    accessorKey: "totalPodcast",
-    header: "Podcasts",
-  },
-  {
-    accessorKey: "subscription",
-    header: "Plan",
   },
   {
     id: "actions",
     header: "Action",
-    cell: ({ onDelete, row }: CellContext<Podcaster, unknown> | any) => {
-      const podcaster = row.original;
+    cell: ({ onDelete, row }: CellContext<User, unknown> | any) => {
+      const user = row.original;
 
       return (
         <Button
-          onClick={() => onDelete(podcaster.id)}
+          onClick={() => onDelete(user.id)}
           variant={"destructive"}
           size={"sm"}
         >

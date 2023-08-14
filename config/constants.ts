@@ -1,2 +1,2 @@
-export const baseURL = "https://jiveify-ead0f59462c5.herokuapp.com"
+export const baseURL = "https://test-jv.ygrehu.easypanel.host"
 export const basePath = "/dashboard"

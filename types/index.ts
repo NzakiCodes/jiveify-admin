@@ -1,4 +1,4 @@
-export interface User {
+export interface AdminUser {
   id: string;
   username?: string;
   email: string;
@@ -20,9 +20,9 @@ type Token = string;
 
 export interface AuthenticateUser {
   isLoggedIn: boolean;
-  user: Partial<User> | null;
+  user: Partial<AdminUser> | null;
   token: Token | null;
-  setUser: (user: User) => void;
+  setUser: (user: AdminUser) => void;
   setToken: (token: Token) => void;
   logout: () => void;
   updateAvatar:(avatar:string)=>void
@@ -142,3 +142,29 @@ export interface ExpiryDateClass {
   timestamp: string;
   date:      string;
 }
+
+
+export interface User {
+  id:         string;
+  username:   null | string;
+  email:      string;
+  first_name: string;
+  last_name:  string|null;
+  company_id: null;
+  admin_id:   null;
+  role:       Role;
+  address:    null | string;
+  city:       null | string;
+  country:    null | string;
+  zip_code:   number | null;
+  status:     string;
+  created_at: string|Date;
+  updated_at: string|Date;
+  gender:     Gender;
+  avatar:     null | string;
+  subscribed: boolean;
+}
+
+export type Gender = "male" | "female";
+
+export type Role = "member";

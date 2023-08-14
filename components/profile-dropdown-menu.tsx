@@ -13,12 +13,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import getNameInitials from "@/utils/getNameInitials";
 import Link from "next/link";
-import { User } from "@/types";
+import { AdminUser } from "@/types";
 import { Skeleton } from "./ui/skeleton";
 import { useAuthStore } from "@/store";
 import { baseURL } from "@/config/constants";
 
-export function ProfileDropdownMenu({ user }: { user: Partial<User> | null }) {
+export function ProfileDropdownMenu({ user }: { user: Partial<AdminUser> | null }) {
   const logout = useAuthStore((s) => s.logout);
   return (
     <DropdownMenu>

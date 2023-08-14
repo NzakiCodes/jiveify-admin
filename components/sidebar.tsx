@@ -11,6 +11,7 @@ import {
   SunIcon,
   Users,
   Users2,
+  UsersIcon,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
@@ -52,6 +53,11 @@ const sidebarlinks: {
     href: "/",
     icon: HomeIcon,
     text: "Home",
+  },
+  {
+    href: "/users",
+    icon: UsersIcon,
+    text: "Users",
   },
   {
     href: "/podcasters",

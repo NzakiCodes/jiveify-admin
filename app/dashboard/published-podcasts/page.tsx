@@ -42,20 +42,18 @@ export default function Page() {
           <div className="flex items-center justify-between w-full">
             <div className="space-y-1">
               <h2 className="text-2xl font-semibold tracking-tight">
-                Popular Podcasts
+                All Published Podcasts
               </h2>
-              <p className="text-sm text-muted-foreground">
-              Recommended just for you
-              </p>
+            
             </div>
-            <Link href={"/"}>See All</Link>
+            
           </div>
           <Separator className="my-4" />
           <div className="relative">
-            <ScrollArea>
-              <div className="flex space-x-4 pb-4">
+            {/* <ScrollArea> */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-4">
                 {popularPodcastQuery.isLoading &&
-                  [1, 2, 3, 4, 5].map((p) => (
+                  [1, 2, 3, 4, 5,6,7,8,9,10,9,8,9].map((p) => (
                     <PodcastCard.Skelecton
                       key={p}
                       className="w-[250px] h-[330px]"
@@ -73,19 +71,17 @@ export default function Page() {
                     />
                   ))}
               </div>
-              <ScrollBar orientation="horizontal" />
-            </ScrollArea>
+              {/* <ScrollBar orientation="horizontal" />
+            </ScrollArea> */}
           </div>
         </div>
-        <div className=" px-4 py-6 lg:px-8">
+        {/* <div className=" px-4 py-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="space-y-1">
               <h2 className="lg:text-2xl font-semibold tracking-tight">
                 Your recent viewed podcasts
               </h2>
-              {/* <p className="text-sm text-muted-foreground">
-                    Top picks for you. Updated daily.
-                  </p> */}
+           
             </div>
             <Link href={"/"} className="text-sm">
               See All
@@ -117,7 +113,7 @@ export default function Page() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
           </div>
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );

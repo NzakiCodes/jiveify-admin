@@ -11,21 +11,27 @@ const fetchUser = async () => {
 };
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const setUser = useAuthStore((s) => s.setUser);
+  const logout = useAuthStore((s) => s.logout);
   const user = useAuthStore((s) => s.user);
   const isLoggedIn = useAuthStore((s) => s.isLoggedIn);
 
   const userQuery = useQuery(["fetch-user-data"], fetchUser);
   useEffect(() => {
     if (!isLoggedIn) {
-      redirect('/login')
+      redirect("/login");
     }
-    
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 
   useEffect(() => {
     if (userQuery.isSuccess) {
       setUser(userQuery.data.data);
+    }
+
+    if (userQuery.isError) {
+      console.log(userQuery.error);
+      logout();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userQuery]);

@@ -11,6 +11,7 @@ import { toast } from "@/components/ui/use-toast";
 import { CheckCircle } from "lucide-react";
 import { ToastAction } from "@/components/ui/toast";
 import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/store";
 
 const fetchUsers = (): Promise<User[]> =>
   axiosAuth.get("https://test-jv.ygrehu.easypanel.host/admin/users").then((response) => response.data.items);
@@ -45,7 +46,14 @@ const InitialData: User[] = [
 
 
 export default function Page() {
+
+  const logout = useAuthStore(s=>s.logout)
   const usersQuery = useQuery(["users"], fetchUsers);
+
+  if(usersQuery.isError){
+    console.log(usersQuery.error)
+    logout()
+  }
 console.log(usersQuery.data)
   const onDeleteSuccess = (res: AxiosResponse<{ message: string }, any>) => {
     usersQuery.refetch();

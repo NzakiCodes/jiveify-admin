@@ -85,7 +85,7 @@ export default function Page() {
           title: data.title,
           description: data.description,
           totalPodcast: data.totalPodcast,
-          subscription: data.subscription?.subscription_plan,
+          subscription: data.subscription?.subscription_plan==undefined?"---":`${data.subscription?.subscription_plan} - ${data.subscription?.plan_amount}`,
         })
       )
     : InitialData;

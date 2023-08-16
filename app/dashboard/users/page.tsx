@@ -13,7 +13,7 @@ import { ToastAction } from "@/components/ui/toast";
 import { Button } from "@/components/ui/button";
 
 const fetchUsers = (): Promise<User[]> =>
-  axios.get("https://test-jv.ygrehu.easypanel.host/admin/users").then((response) => response.data.items);
+  axiosAuth.get("https://test-jv.ygrehu.easypanel.host/admin/users").then((response) => response.data.items);
 
   const deleteUserAPI = (userId: string) => {
     console.log(userId);

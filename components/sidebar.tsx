@@ -67,7 +67,7 @@ const sidebarlinks: {
   {
     href: "/published-podcasts",
     icon: FileAudioIcon,
-    text: "Published Podcasts",
+    text: "All Published Podcasts",
   },
   {
     href: "/categories",

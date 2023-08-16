@@ -55,6 +55,8 @@ export interface Podcast {
   isDraft:     boolean;
 }
 
+
+
 export interface Audio {
   file_data:  FileData;
   file_path:  string;
@@ -168,3 +170,20 @@ export interface User {
 export type Gender = "male" | "female";
 
 export type Role = "member";
+
+
+export interface AllPodcast {
+  id:           number;
+  _id:          string;
+  user_id:      string;
+  title:        string;
+  description:  string;
+  image:        string;
+  audio:        string;
+  category:     null;
+  location:     string;
+  status:       string;
+  created_at:   Date;
+  updated_at:   Date;
+  subscription: null;
+}

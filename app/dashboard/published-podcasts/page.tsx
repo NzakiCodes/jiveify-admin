@@ -8,24 +8,17 @@ import Topbar from "@/components/topbar";
 import { axiosAuth } from "@/config/axios";
 import { useQuery } from "@tanstack/react-query";
 import PodcastCard from "@/components/podcast-card";
-import { Podcast } from "@/types";
+import { AllPodcast, Podcast } from "@/types";
 
-const fetchPopularPodcasts = (): Promise<Podcast[]> =>
-  axiosAuth.get("/podcast/popular").then((response) => response.data);
-
-const fetchRecentViewedPodcasts = (): Promise<Podcast[]> =>
-  axiosAuth.get("/podcast/recent").then((response) => response.data);
+const fetchAllPodcasts = (): Promise<AllPodcast[]> =>
+  axiosAuth.get("/admin/podcasts").then((response) => response.data.items);
 
 export default function Page() {
-  const popularPodcastQuery = useQuery(
+  const allPodcastQuery = useQuery(
     ["popular-podcast"],
-    fetchPopularPodcasts
+    fetchAllPodcasts
   );
 
-  const recentViewedPodcastQuery = useQuery(
-    ["recent-viewed-podcast"],
-    fetchRecentViewedPodcasts
-  );
 
   useEffect(() => {}, []);
 
@@ -45,15 +38,15 @@ export default function Page() {
           <div className="relative">
             {/* <ScrollArea> */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-4">
-              {popularPodcastQuery.isLoading &&
+              {allPodcastQuery.isLoading &&
                 Array.from({ length: 12 }).map((_, idx) => (
                   <PodcastCard.Skelecton
                     key={idx}
                     className="w-[250px] h-[330px]"
                   />
                 ))}
-              {popularPodcastQuery.isSuccess &&
-                popularPodcastQuery.data.map((podcast) => (
+              {allPodcastQuery.isSuccess &&
+                allPodcastQuery.data.map((podcast) => (
                   <PodcastCard
                     key={podcast.id}
                     podcast={podcast}

@@ -2,13 +2,13 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { Podcast } from "@/types";
+import { AllPodcast, Podcast } from "@/types";
 import { Skeleton } from "./ui/skeleton";
 import truncateString from "@/utils/truncateString";
 import { baseURL } from "@/config/constants";
 
 interface PodcastCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  podcast: Podcast;
+  podcast: Podcast |AllPodcast;
   aspectRatio?: "portrait" | "square";
   width?: number;
   height?: number;
